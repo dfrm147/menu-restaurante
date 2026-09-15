@@ -1,10 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>Prueba</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Restaurante</title>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+header {
+  background: #222;
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+.producto, #carrito {
+  background: white;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+button {
+  background: #222;
+  color: white;
+  border: 0;
+  padding: 12px 18px;
+  border-radius: 8px;
+}
+</style>
 </head>
+
 <body>
-<h1>HOLA</h1>
-<p>Mi página funciona.</p>
+
+<header>
+<h1>Mi Restaurante</h1>
+<p>Menú digital</p>
+</header>
+
+<div class="producto">
+<h2>Hamburguesa</h2>
+<p>Hamburguesa con queso y verduras</p>
+<b>$15.000</b>
+<br><br>
+<button onclick="agregar('Hamburguesa',15000)">Agregar</button>
+</div>
+
+<div class="producto">
+<h2>Papas fritas</h2>
+<p>Papas crocantes</p>
+<b>$7.000</b>
+<br><br>
+<button onclick="agregar('Papas fritas',7000)">Agregar</button>
+</div>
+
+<div id="carrito">
+<h2>🛒 Mi pedido</h2>
+
+<div id="lista"></div>
+
+<h3>Total: $<span id="total">0</span></h3>
+
+<button onclick="enviarPedido()">Enviar pedido</button>
+</div>
+
+<script>
+
+let pedido = [];
+let total = 0;
+
+function agregar(nombre, precio) {
+
+pedido.push({
+nombre: nombre,
+precio: precio
+});
+
+total += precio;
+
+mostrar();
+
+}
+
+function mostrar() {
+
+let lista = document.getElementById("lista");
+
+lista.innerHTML = "";
+
+pedido.forEach(function(producto) {
+
+lista.innerHTML +=
+"<p>" + producto.nombre +
+" - $" +
+producto.precio.toLocaleString("es-CO") +
+"</p>";
+
+});
+
+document.getElementById("total").innerText =
+total.toLocaleString("es-CO");
+
+}
+
+function enviarPedido() {
+
+if (pedido.length === 0) {
+
+alert("Agrega un producto primero.");
+
+return;
+
+}
+
+alert("¡Pedido preparado!");
+
+}
+
+</script>
+
 </body>
 </html>
