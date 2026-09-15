@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Restaurante</title>
 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .producto {
+      background: white;
+      margin: 15px;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    button {
+      background: #222;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #carrito {
+      background: white;
+      margin: 15px;
+      padding: 20px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Mi Restaurante</h1>
+  <p>Menú digital</p>
+</header>
+
+<div class="producto">
+  <h2>Hamburguesa</h2>
+  <p>Hamburguesa de carne, queso y verduras.</p>
+  <strong>$15.000</strong>
+  <br><br>
+  <button onclick="agregar('Hamburguesa', 15000)">
+    Agregar
+  </button>
+</div>
+
+<div class="producto">
+  <h2>Papas fritas</h2>
+  <p>Papas fritas crocantes.</p>
+  <strong>$7.000</strong>
+  <br><br>
+  <button onclick="agregar('Papas fritas', 7000)">
+    Agregar
+  </button>
+</div>
+
+<div id="carrito">
+  <h2>🛒 Mi pedido</h2>
+
+  <div id="lista"></div>
+
+  <h3>Total: $<span id="total">0</span></h3>
+
+  <button onclick="enviarPedido()">
+    Enviar pedido
+  </button>
+</div>
+
+<script>
+
+let pedido = [];
+let total = 0;
+
+function agregar(nombre, precio) {
+
+  pedido.push({
+    nombre: nombre,
+    precio: precio
+  });
+
+  total += precio;
+
+  mostrarCarrito();
+}
+
+function mostrarCarrito() {
+
+  let lista = document.getElementById("lista");
+
+  lista.innerHTML = "";
+
+  pedido.forEach(function(producto) {
+
+    lista.innerHTML +=
+      "<p>" +
+      producto.nombre +
+      " - $" +
+      producto.precio.toLocaleString("es-CO") +
+      "</p>";
+
+  });
+
+  document.getElementById("total").innerText =
+    total.toLocaleString("es-CO");
+}
+
+function enviarPedido() {
+
+  if (pedido.length === 0) {
+    alert("Agrega algún producto primero.");
+    return;
+  }
+
+  alert("Pedido preparado. En el siguiente paso lo enviaremos a la cocina.");
+
+}
+
+</script>
+
+</body>
+</html>
