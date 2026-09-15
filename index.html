@@ -383,6 +383,20 @@ let pedido = [];
 
 
 function agregar(nombre, precio) {
+    const existente = carrito.find(item => item.nombre === nombre);
+
+    if (existente) {
+        existente.cantidad++;
+    } else {
+        carrito.push({
+            nombre: nombre,
+            precio: precio,
+            cantidad: 1
+        });
+    }
+
+    actualizarCarrito();
+}
 
 pedido.push({
 nombre: nombre,
@@ -395,6 +409,19 @@ mostrarCarrito();
 
 
 function eliminar(index) {
+    carrito.splice(index, 1);
+    mostrarCarrito();
+}
+
+function cambiarCantidad(index, cambio) {
+    carrito[index].cantidad += cambio;
+
+    if (carrito[index].cantidad <= 0) {
+        carrito.splice(index, 1);
+    }
+
+    mostrarCarrito();
+}
 
 pedido.splice(index, 1);
 
@@ -404,6 +431,35 @@ mostrarCarrito();
 
 
 function mostrarCarrito() {
+    const carritoDiv = document.getElementById("carrito");
+    carritoDiv.innerHTML = "";
+
+    let total = 0;
+
+    carrito.forEach((item, index) => {
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+
+        carritoDiv.innerHTML += `
+            <div class="item-carrito">
+                <span>${item.nombre}</span>
+
+                <div>
+                    <button onclick="cambiarCantidad(${index}, -1)">−</button>
+                    <strong>${item.cantidad}</strong>
+                    <button onclick="cambiarCantidad(${index}, 1)">+</button>
+                </div>
+
+                <span>$${subtotal.toLocaleString()}</span>
+
+                <button onclick="eliminarProducto(${index})">🗑️</button>
+            </div>
+        `;
+    });
+
+    document.getElementById("total").textContent =
+        "$" + total.toLocaleString();
+}
 
 let lista = document.getElementById("lista");
 
