@@ -4,524 +4,232 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alta Pinta</title>
+<title>Alta Pinta | Parrilla & Bebidas</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
 <style>
-
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background: #0c0c0c;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background: #111;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* ENCABEZADO */
-
 header {
-  text-align: center;
-  padding: 45px 20px;
-  background:
-    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.85)),
-    #151515;
-  border-bottom: 2px solid #ff6a00;
+    min-height: 280px;
+    padding: 60px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75)),
+        url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1400&q=80")
+        center/cover;
 }
 
 header h1 {
-  margin: 0;
-  color: #ff6a00;
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  letter-spacing: 2px;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    letter-spacing: 3px;
 }
 
 header p {
-  margin-top: 8px;
-  color: #d5d5d5;
-  font-size: 14px;
+    margin-top: 8px;
+    font-size: 16px;
+    letter-spacing: 2px;
 }
 
-/* CATEGORÍAS */
-
-.categoria {
-  max-width: 650px;
-  margin: auto;
-  padding: 25px 16px 5px;
+.container {
+    width: 92%;
+    max-width: 900px;
+    margin: auto;
+    padding-bottom: 180px;
 }
 
-.categoria h2 {
-  font-family: 'Playfair Display', serif;
-  color: #ff6a00;
-  font-size: 27px;
-  border-bottom: 1px solid #3b3b3b;
-  padding-bottom: 12px;
+h2 {
+    margin-top: 35px;
+    border-left: 5px solid #ff7a00;
+    padding-left: 12px;
 }
-
-/* PRODUCTOS */
 
 .producto {
-  background: #171717;
-  margin: 18px 0;
-  padding: 22px;
-  border-radius: 14px;
-  border: 1px solid #292929;
-  box-shadow: 0 5px 18px rgba(0,0,0,.25);
+    background: #1d1d1d;
+    border-radius: 15px;
+    padding: 18px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.25);
 }
 
 .producto h3 {
-  margin-top: 0;
-  font-size: 19px;
-}
-
-.descripcion {
-  color: #aaa;
-  font-size: 14px;
-  line-height: 1.5;
+    margin: 0 0 6px;
 }
 
 .precio {
-  color: #ff6a00;
-  font-size: 20px;
-  font-weight: 700;
+    color: #ff8a00;
+    font-weight: 700;
+    font-size: 17px;
 }
 
-button {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 9px;
-  background: #ff6a00;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  cursor: pointer;
+.producto button {
+    background: #ff7a00;
+    color: white;
+    border: none;
+    padding: 11px 15px;
+    border-radius: 9px;
+    font-weight: 700;
+    cursor: pointer;
 }
 
-button:active {
-  transform: scale(.98);
+.producto button:active {
+    transform: scale(.96);
 }
-
-/* CARRITO */
 
 #carrito {
-  max-width: 650px;
-  margin: 35px auto;
-  padding: 24px 18px;
-  background: #151515;
-  border-radius: 15px;
-  border: 1px solid #ff6a00;
+    margin-top: 40px;
+    background: #191919;
+    border-radius: 18px;
+    padding: 20px;
 }
 
-#carrito h2 {
-  color: #ff6a00;
-  font-family: 'Playfair Display', serif;
+.item-carrito {
+    border-bottom: 1px solid #333;
+    padding: 15px 0;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 12px;
+    align-items: center;
 }
 
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  border-bottom: 1px solid #333;
-  padding: 13px 0;
+.controles {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.controles button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 7px;
+    background: #ff7a00;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cantidad {
+    min-width: 22px;
+    text-align: center;
+    font-weight: 700;
 }
 
 .eliminar {
-  width: auto;
-  padding: 8px 12px;
-  background: #292929;
-  font-size: 12px;
+    background: #b52b2b;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 8px 10px;
+    cursor: pointer;
 }
 
 .total {
-  font-size: 23px;
-  font-weight: 700;
-  color: #ff6a00;
-  margin: 22px 0;
+    text-align: right;
+    font-size: 22px;
+    font-weight: 800;
+    margin-top: 20px;
 }
 
-/* VENTANA DE CONFIRMACIÓN */
+.pedir {
+    width: 100%;
+    margin-top: 20px;
+    padding: 17px;
+    background: #ff7a00;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.vacio {
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+}
 
 .modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.78);
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
 }
 
-.modal-contenido {
-  width: 100%;
-  max-width: 400px;
-  background: #181818;
-  border: 1px solid #ff6a00;
-  border-radius: 18px;
-  padding: 30px 22px;
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(0,0,0,.6);
+.modal-box {
+    background: #202020;
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,.5);
 }
 
-.check {
-  font-size: 55px;
-  margin-bottom: 10px;
+.modal-box .check {
+    font-size: 55px;
 }
 
-.modal-contenido h2 {
-  color: #ff6a00;
-  font-family: 'Playfair Display', serif;
-  font-size: 27px;
+.modal-box h2 {
+    border: none;
+    padding: 0;
+    margin: 10px 0;
 }
 
-.modal-contenido p {
-  color: #ccc;
-  line-height: 1.6;
+.modal-box button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #ff7a00;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
 }
 
-</style>
-</head>
-
-<body>
-
-<header>
-
-<h1>ALTA PINTA</h1>
-
-<p>Parrilla & Bebidas</p>
-
-</header>
-
-
-<!-- CARNES -->
-
-<section class="categoria">
-
-<h2>🥩 Carnes a la parrilla</h2>
-
-<div class="producto">
-<h3>🥩 Churrasco</h3>
-<p class="descripcion">
-Corte de carne a la parrilla acompañado de papas.
-</p>
-<p class="precio">$28.000</p>
-<button onclick="agregar('Churrasco',28000)">
-Agregar al pedido
-</button>
-</div>
-
-<div class="producto">
-<h3>🍖 Carne a la parrilla</h3>
-<p class="descripcion">
-Jugosa carne preparada al carbón.
-</p>
-<p class="precio">$25.000</p>
-<button onclick="agregar('Carne a la parrilla',25000)">
-Agregar al pedido
-</button>
-</div>
-
-<div class="producto">
-<h3>🥩 Punta de anca</h3>
-<p class="descripcion">
-Corte de punta de anca preparado a la parrilla.
-</p>
-<p class="precio">$32.000</p>
-<button onclick="agregar('Punta de anca',32000)">
-Agregar al pedido
-</button>
-</div>
-
-<div class="producto">
-<h3>🍗 Pollo a la parrilla</h3>
-<p class="descripcion">
-Pollo dorado y jugoso preparado a la parrilla.
-</p>
-<p class="precio">$22.000</p>
-<button onclick="agregar('Pollo a la parrilla',22000)">
-Agregar al pedido
-</button>
-</div>
-
-<div class="producto">
-<h3>🍖 Costillas BBQ</h3>
-<p class="descripcion">
-Costillas de cerdo bañadas en salsa BBQ.
-</p>
-<p class="precio">$30.000</p>
-<button onclick="agregar('Costillas BBQ',30000)">
-Agregar al pedido
-</button>
-</div>
-
-<div class="producto">
-<h3>🍔 Hamburguesa Alta Pinta</h3>
-<p class="descripcion">
-Carne, queso, vegetales frescos y salsa de la casa.
-</p>
-<p class="precio">$18.000</p>
-<button onclick="agregar('Hamburguesa Alta Pinta',18000)">
-Agregar al pedido
-</button>
-</div>
-
-<div class="producto">
-<h3>🍟 Papas a la francesa</h3>
-<p class="descripcion">
-Papas crocantes acompañadas de salsa de la casa.
-</p>
-<p class="precio">$8.000</p>
-<button onclick="agregar('Papas a la francesa',8000)">
-Agregar al pedido
-</button>
-</div>
-
-</section>
-
-
-<!-- BEBIDAS -->
-
-<section class="categoria">
-
-<h2>🥤 Bebidas</h2>
-
-<div class="producto">
-<h3>🥤 Gaseosa</h3>
-<p class="descripcion">Gaseosa fría.</p>
-<p class="precio">$5.000</p>
-<button onclick="agregar('Gaseosa',5000)">
-Agregar al pedido
-</button>
-</div>
-
-<div class="producto">
-<h3>💧 Agua</h3>
-<p class="descripcion">Agua fría.</p>
-<p class="precio">$3.000</p>
-<button onclick="agregar('Agua',3000)">
-Agregar al pedido
-</button>
-</div>
-
-<div class="producto">
-<h3>🍋 Limonada</h3>
-<p class="descripcion">Limonada natural refrescante.</p>
-<p class="precio">$7.000</p>
-<button onclick="agregar('Limonada',7000)">
-Agregar al pedido
-</button>
-</div>
-
-<div class="producto">
-<h3>🍺 Cerveza</h3>
-<p class="descripcion">Cerveza fría.</p>
-<p class="precio">$8.000</p>
-<button onclick="agregar('Cerveza',8000)">
-Agregar al pedido
-</button>
-</div>
-
-</section>
-
-
-<!-- CARRITO -->
-
-<div id="carrito">
-
-<h2>🛒 Tu pedido</h2>
-
-<div id="lista"></div>
-
-<div class="total">
-Total: $<span id="total">0</span>
-</div>
-
-<button onclick="enviarPedido()">
-🔥 Pedir ahora
-</button>
-
-</div>
-
-
-<!-- MODAL -->
-
-<div class="modal" id="modal">
-
-<div class="modal-contenido">
-
-<div class="check">✓</div>
-
-<h2>¡Pedido recibido!</h2>
-
-<p>
-Tu pedido ha sido enviado correctamente.
-</p>
-
-<p>
-Gracias por elegir <strong>Alta Pinta</strong>.
-</p>
-
-<button onclick="cerrarModal()">
-Aceptar
-</button>
-
-</div>
-
-</div>
-
-
-<script>
-
-let pedido = [];
-
-
-function agregar(nombre, precio) {
-    const existente = carrito.find(item => item.nombre === nombre);
-
-    if (existente) {
-        existente.cantidad++;
-    } else {
-        carrito.push({
-            nombre: nombre,
-            precio: precio,
-            cantidad: 1
-        });
+@media(max-width:600px) {
+    header h1 {
+        font-size: 38px;
     }
 
-    actualizarCarrito();
-}
-
-pedido.push({
-nombre: nombre,
-precio: precio
-});
-
-mostrarCarrito();
-
-}
-
-
-function eliminar(index) {
-    carrito.splice(index, 1);
-    mostrarCarrito();
-}
-
-function cambiarCantidad(index, cambio) {
-    carrito[index].cantidad += cambio;
-
-    if (carrito[index].cantidad <= 0) {
-        carrito.splice(index, 1);
+    .producto {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    mostrarCarrito();
-}
+    .producto button {
+        width: 100%;
+    }
 
-pedido.splice(index, 1);
+    .item-carrito {
+        grid-template-columns: 1fr;
+    }
 
-mostrarCarrito();
-
-}
-
-
-function mostrarCarrito() {
-    const carritoDiv = document.getElementById("carrito");
-    carritoDiv.innerHTML = "";
-
-    let total = 0;
-
-    carrito.forEach((item, index) => {
-        const subtotal = item.precio * item.cantidad;
-        total += subtotal;
-
-        carritoDiv.innerHTML += `
-            <div class="item-carrito">
-                <span>${item.nombre}</span>
-
-                <div>
-                    <button onclick="cambiarCantidad(${index}, -1)">−</button>
-                    <strong>${item.cantidad}</strong>
-                    <button onclick="cambiarCantidad(${index}, 1)">+</button>
-                </div>
-
-                <span>$${subtotal.toLocaleString()}</span>
-
-                <button onclick="eliminarProducto(${index})">🗑️</button>
-            </div>
-        `;
-    });
-
-    document.getElementById("total").textContent =
-        "$" + total.toLocaleString();
-}
-
-let lista = document.getElementById("lista");
-
-lista.innerHTML = "";
-
-let total = 0;
-
-
-pedido.forEach(function(producto, index) {
-
-total += producto.precio;
-
-lista.innerHTML += `
-
-<div class="item">
-
-<span>
-${producto.nombre}
-<br>
-$${producto.precio.toLocaleString("es-CO")}
-</span>
-
-<button class="eliminar"
-onclick="eliminar(${index})">
-Eliminar
-</button>
-
-</div>
-
-`;
-
-});
-
-
-document.getElementById("total").innerText =
-total.toLocaleString("es-CO");
-
-}
-
-
-function enviarPedido() {
-
-if (pedido.length === 0) {
-
-alert("Tu pedido está vacío.");
-
-return;
-
-}
-
-document.getElementById("modal").style.display = "flex";
-
-}
-
-
-function cerrarModal() {
-
-document.getElementById("modal").style.display = "none";
-
-}
-
-</script>
-
-</body>
-</html>
+    .controles {
+        justify-content: flex
