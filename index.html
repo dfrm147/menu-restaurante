@@ -50,7 +50,7 @@ header p {
     width: 92%;
     max-width: 900px;
     margin: auto;
-    padding-bottom: 180px;
+    padding-bottom: 150px;
 }
 
 h2 {
@@ -68,7 +68,6 @@ h2 {
     justify-content: space-between;
     align-items: center;
     gap: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.25);
 }
 
 .producto h3 {
@@ -91,10 +90,6 @@ h2 {
     cursor: pointer;
 }
 
-.producto button:active {
-    transform: scale(.96);
-}
-
 #carrito {
     margin-top: 40px;
     background: #191919;
@@ -102,11 +97,33 @@ h2 {
     padding: 20px;
 }
 
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: 700;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 13px;
+    border-radius: 9px;
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
 .item-carrito {
     border-bottom: 1px solid #333;
     padding: 15px 0;
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 1fr auto auto auto;
     gap: 12px;
     align-items: center;
 }
@@ -126,13 +143,11 @@ h2 {
     color: white;
     font-size: 20px;
     font-weight: bold;
-    cursor: pointer;
 }
 
 .cantidad {
     min-width: 22px;
     text-align: center;
-    font-weight: 700;
 }
 
 .eliminar {
@@ -140,8 +155,7 @@ h2 {
     color: white;
     border: none;
     border-radius: 7px;
-    padding: 8px 10px;
-    cursor: pointer;
+    padding: 8px;
 }
 
 .total {
@@ -161,7 +175,6 @@ h2 {
     color: white;
     font-size: 18px;
     font-weight: 800;
-    cursor: pointer;
 }
 
 .vacio {
@@ -188,17 +201,10 @@ h2 {
     padding: 30px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 40px rgba(0,0,0,.5);
 }
 
-.modal-box .check {
+.check {
     font-size: 55px;
-}
-
-.modal-box h2 {
-    border: none;
-    padding: 0;
-    margin: 10px 0;
 }
 
 .modal-box button {
@@ -210,10 +216,10 @@ h2 {
     background: #ff7a00;
     color: white;
     font-weight: 700;
-    cursor: pointer;
 }
 
 @media(max-width:600px) {
+
     header h1 {
         font-size: 38px;
     }
@@ -247,171 +253,179 @@ h2 {
 
 <div class="container">
 
-    <h2>🥩 Carnes a la parrilla</h2>
+<h2>🥩 Carnes a la parrilla</h2>
 
-    <div class="producto">
-        <div>
-            <h3>Churrasco</h3>
-            <div class="precio">$28.000</div>
-        </div>
-        <button onclick="agregar('Churrasco',28000)">Agregar al pedido</button>
+<div class="producto">
+    <div>
+        <h3>Churrasco</h3>
+        <div class="precio">$28.000</div>
     </div>
-
-    <div class="producto">
-        <div>
-            <h3>Carne a la parrilla</h3>
-            <div class="precio">$25.000</div>
-        </div>
-        <button onclick="agregar('Carne a la parrilla',25000)">Agregar al pedido</button>
-    </div>
-
-    <div class="producto">
-        <div>
-            <h3>Punta de anca</h3>
-            <div class="precio">$32.000</div>
-        </div>
-        <button onclick="agregar('Punta de anca',32000)">Agregar al pedido</button>
-    </div>
-
-    <div class="producto">
-        <div>
-            <h3>Pollo a la parrilla</h3>
-            <div class="precio">$22.000</div>
-        </div>
-        <button onclick="agregar('Pollo a la parrilla',22000)">Agregar al pedido</button>
-    </div>
-
-    <div class="producto">
-        <div>
-            <h3>Costillas BBQ</h3>
-            <div class="precio">$30.000</div>
-        </div>
-        <button onclick="agregar('Costillas BBQ',30000)">Agregar al pedido</button>
-    </div>
-
-    <div class="producto">
-        <div>
-            <h3>Hamburguesa Alta Pinta</h3>
-            <div class="precio">$18.000</div>
-        </div>
-        <button onclick="agregar('Hamburguesa Alta Pinta',18000)">Agregar al pedido</button>
-    </div>
-
-    <div class="producto">
-        <div>
-            <h3>Papas a la francesa</h3>
-            <div class="precio">$8.000</div>
-        </div>
-        <button onclick="agregar('Papas a la francesa',8000)">Agregar al pedido</button>
-    </div>
-
-
-    <h2>🥤 Bebidas</h2>
-
-    <div class="producto">
-        <div>
-            <h3>Gaseosa</h3>
-            <div class="precio">$5.000</div>
-        </div>
-        <button onclick="agregar('Gaseosa',5000)">Agregar al pedido</button>
-    </div>
-
-    <div class="producto">
-        <div>
-            <h3>Agua</h3>
-            <div class="precio">$3.000</div>
-        </div>
-        <button onclick="agregar('Agua',3000)">Agregar al pedido</button>
-    </div>
-
-    <div class="producto">
-        <div>
-            <h3>Limonada</h3>
-            <div class="precio">$7.000</div>
-        </div>
-        <button onclick="agregar('Limonada',7000)">Agregar al pedido</button>
-    </div>
-
-    <div class="producto">
-        <div>
-            <h3>Cerveza</h3>
-            <div class="precio">$8.000</div>
-        </div>
-        <button onclick="agregar('Cerveza',8000)">Agregar al pedido</button>
-    </div>
-
-
-    <div id="carrito">
-        <div style="margin:20px 0;">
-    <label>Número de mesa</label>
-    <input
-        type="number"
-        id="mesa"
-        placeholder="Ej: 5"
-        min="1"
-        style="width:100%;padding:12px;margin-top:8px;border-radius:8px;border:none;"
-    >
-
-    <label style="display:block;margin-top:15px;">
-        Observaciones
-    </label>
-
-    <textarea
-        id="observaciones"
-        placeholder="Ej: Sin cebolla..."
-        style="width:100%;padding:12px;margin-top:8px;border-radius:8px;border:none;min-height:80px;"
-    ></textarea>
+    <button onclick="agregar('Churrasco',28000)">Agregar al pedido</button>
 </div>
-        <h2>🛒 Tu pedido</h2>
 
-        <div id="listaCarrito">
-            <div class="vacio">Tu pedido está vacío.</div>
-        </div>
-
-        <div class="total">
-            Total: <span id="total">$0</span>
-        </div>
-
-        <button class="pedir" onclick="pedirAhora()">
-            🔥 Pedir ahora
-        </button>
+<div class="producto">
+    <div>
+        <h3>Carne a la parrilla</h3>
+        <div class="precio">$25.000</div>
     </div>
+    <button onclick="agregar('Carne a la parrilla',25000)">Agregar al pedido</button>
+</div>
+
+<div class="producto">
+    <div>
+        <h3>Punta de anca</h3>
+        <div class="precio">$32.000</div>
+    </div>
+    <button onclick="agregar('Punta de anca',32000)">Agregar al pedido</button>
+</div>
+
+<div class="producto">
+    <div>
+        <h3>Pollo a la parrilla</h3>
+        <div class="precio">$22.000</div>
+    </div>
+    <button onclick="agregar('Pollo a la parrilla',22000)">Agregar al pedido</button>
+</div>
+
+<div class="producto">
+    <div>
+        <h3>Costillas BBQ</h3>
+        <div class="precio">$30.000</div>
+    </div>
+    <button onclick="agregar('Costillas BBQ',30000)">Agregar al pedido</button>
+</div>
+
+<div class="producto">
+    <div>
+        <h3>Hamburguesa Alta Pinta</h3>
+        <div class="precio">$18.000</div>
+    </div>
+    <button onclick="agregar('Hamburguesa Alta Pinta',18000)">Agregar al pedido</button>
+</div>
+
+<div class="producto">
+    <div>
+        <h3>Papas a la francesa</h3>
+        <div class="precio">$8.000</div>
+    </div>
+    <button onclick="agregar('Papas a la francesa',8000)">Agregar al pedido</button>
+</div>
+
+<h2>🥤 Bebidas</h2>
+
+<div class="producto">
+    <div>
+        <h3>Gaseosa</h3>
+        <div class="precio">$5.000</div>
+    </div>
+    <button onclick="agregar('Gaseosa',5000)">Agregar al pedido</button>
+</div>
+
+<div class="producto">
+    <div>
+        <h3>Agua</h3>
+        <div class="precio">$3.000</div>
+    </div>
+    <button onclick="agregar('Agua',3000)">Agregar al pedido</button>
+</div>
+
+<div class="producto">
+    <div>
+        <h3>Limonada</h3>
+        <div class="precio">$7.000</div>
+    </div>
+    <button onclick="agregar('Limonada',7000)">Agregar al pedido</button>
+</div>
+
+<div class="producto">
+    <div>
+        <h3>Cerveza</h3>
+        <div class="precio">$8.000</div>
+    </div>
+    <button onclick="agregar('Cerveza',8000)">Agregar al pedido</button>
+</div>
+
+
+<div id="carrito">
+
+<h2>🛒 Tu pedido</h2>
+
+<label>Número de mesa</label>
+
+<input
+    type="number"
+    id="mesa"
+    min="1"
+    placeholder="Ej: 5"
+>
+
+<label>Observaciones</label>
+
+<textarea
+    id="observaciones"
+    placeholder="Ej: Sin cebolla..."
+></textarea>
+
+<div id="listaCarrito">
+    <div class="vacio">
+        Tu pedido está vacío.
+    </div>
+</div>
+
+<div class="total">
+    Total: <span id="total">$0</span>
+</div>
+
+<button class="pedir" onclick="pedirAhora()">
+    🔥 Pedir ahora
+</button>
+
+</div>
 
 </div>
 
 
 <div class="modal" id="modal">
-    <div class="modal-box">
 
-        <div class="check">✓</div>
+<div class="modal-box">
 
-        <h2>¡Pedido recibido!</h2>
+<div class="check">✓</div>
 
-        <p>
-            Tu pedido ha sido enviado correctamente.
-            Gracias por elegir Alta Pinta.
-        </p>
+<h2>¡Pedido recibido!</h2>
 
-        <button onclick="cerrarModal()">
-            Aceptar
-        </button>
+<p>
+Tu pedido fue enviado correctamente a cocina.
+</p>
 
-    </div>
+<button onclick="cerrarModal()">
+Aceptar
+</button>
+
+</div>
+
 </div>
 
 
 <script>
+
+const SUPABASE_URL =
+"https://dnvxihkauofhlxrpwvrt.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_hkuOgt-Z_GwT2Nc99TUUaQ_wYfVrhuy";
+
 
 let carrito = [];
 
 
 function agregar(nombre, precio) {
 
-    let producto = carrito.find(item => item.nombre === nombre);
+    const existente =
+        carrito.find(item => item.nombre === nombre);
 
-    if (producto) {
+    if (existente) {
 
-        producto.cantidad++;
+        existente.cantidad++;
 
     } else {
 
@@ -451,7 +465,8 @@ function eliminar(index) {
 
 function mostrarCarrito() {
 
-    const lista = document.getElementById("listaCarrito");
+    const lista =
+        document.getElementById("listaCarrito");
 
     lista.innerHTML = "";
 
@@ -461,53 +476,54 @@ function mostrarCarrito() {
     if (carrito.length === 0) {
 
         lista.innerHTML =
-            '<div class="vacio">Tu pedido está vacío.</div>';
+        '<div class="vacio">Tu pedido está vacío.</div>';
 
     }
 
 
     carrito.forEach((item, index) => {
 
-        let subtotal = item.precio * item.cantidad;
+        const subtotal =
+            item.precio * item.cantidad;
 
         total += subtotal;
 
 
         lista.innerHTML += `
 
-            <div class="item-carrito">
+        <div class="item-carrito">
 
-                <strong>
-                    ${item.nombre}
-                </strong>
+            <strong>${item.nombre}</strong>
 
-                <div class="controles">
-
-                    <button onclick="cambiarCantidad(${index}, -1)">
-                        −
-                    </button>
-
-                    <span class="cantidad">
-                        ${item.cantidad}
-                    </span>
-
-                    <button onclick="cambiarCantidad(${index}, 1)">
-                        +
-                    </button>
-
-                </div>
-
-                <strong>
-                    $${subtotal.toLocaleString('es-CO')}
-                </strong>
+            <div class="controles">
 
                 <button
-                    class="eliminar"
-                    onclick="eliminar(${index})">
-                    🗑️
+                    onclick="cambiarCantidad(${index}, -1)">
+                    −
+                </button>
+
+                <span class="cantidad">
+                    ${item.cantidad}
+                </span>
+
+                <button
+                    onclick="cambiarCantidad(${index}, 1)">
+                    +
                 </button>
 
             </div>
+
+            <strong>
+                $${subtotal.toLocaleString("es-CO")}
+            </strong>
+
+            <button
+                class="eliminar"
+                onclick="eliminar(${index})">
+                🗑️
+            </button>
+
+        </div>
 
         `;
 
@@ -515,90 +531,138 @@ function mostrarCarrito() {
 
 
     document.getElementById("total").textContent =
-        "$" + total.toLocaleString('es-CO');
+        "$" + total.toLocaleString("es-CO");
 }
 
 
 async function pedirAhora() {
 
     if (carrito.length === 0) {
-        alert("Agrega al menos un producto al pedido.");
+
+        alert("Agrega al menos un producto.");
+
         return;
     }
 
-    const mesa = document.getElementById("mesa").value;
-    const observaciones = document.getElementById("observaciones").value;
+
+    const mesa =
+        document.getElementById("mesa").value;
+
+    const observaciones =
+        document.getElementById("observaciones").value;
+
 
     if (!mesa) {
-        alert("Por favor escribe el número de mesa.");
+
+        alert("Escribe el número de mesa.");
+
         return;
     }
 
-    const productos = carrito.map(item => ({
-        nombre: item.nombre,
-        cantidad: item.cantidad,
-        precio: item.precio
-    }));
 
-    const total = carrito.reduce(
-        (suma, item) => suma + (item.precio * item.cantidad),
-        0
-    );
+    const productos =
+        carrito.map(item => ({
+
+            nombre: item.nombre,
+
+            cantidad: item.cantidad,
+
+            precio: item.precio
+
+        }));
+
+
+    const total =
+        carrito.reduce(
+            (suma, item) =>
+            suma + item.precio * item.cantidad,
+            0
+        );
+
 
     try {
 
         const respuesta = await fetch(
-            "https://dnvxihkauofhlxrpwvrt.supabase.co/rest/v1/pedidos",
+            SUPABASE_URL + "/rest/v1/pedidos",
             {
+
                 method: "POST",
 
                 headers: {
-                    "Content-Type": "application/json",
-                    "apikey": "sb_publishable_hkuOgt-Z_GwT2Nc99TUUaQ_wYfVrhuy",
-                    "Authorization": "Bearer sb_publishable_hkuOgt-Z_GwT2Nc99TUUaQ_wYfVrhuy",
-                    "Prefer": "return=minimal"
+
+                    "Content-Type":
+                    "application/json",
+
+                    "apikey":
+                    SUPABASE_KEY,
+
+                    "Authorization":
+                    "Bearer " + SUPABASE_KEY,
+
+                    "Prefer":
+                    "return=minimal"
+
                 },
 
                 body: JSON.stringify({
+
                     mesa: Number(mesa),
-                    productos: JSON.stringify(productos),
+
+                    productos:
+                    JSON.stringify(productos),
+
                     total: total,
+
                     estado: "pendiente",
-                    observaciones: observaciones
+
+                    observaciones:
+                    observaciones
+
                 })
+
             }
         );
 
+
         if (!respuesta.ok) {
-            throw new Error("No se pudo enviar el pedido");
+
+            const error =
+                await respuesta.text();
+
+            console.error(error);
+
+            throw new Error(error);
         }
 
-        document.getElementById("modal").style.display = "flex";
+
+        document.getElementById("modal")
+            .style.display = "flex";
+
 
     } catch (error) {
 
         console.error(error);
-        alert("No se pudo enviar el pedido. Intenta nuevamente.");
+
+        alert(
+            "No se pudo enviar el pedido. " +
+            "Revisa la configuración de Supabase."
+        );
 
     }
-    }
 
-    if (carrito.length === 0) {
-
-        alert("Agrega al menos un producto al pedido.");
-
-        return;
-    }
-
-    document.getElementById("modal").style.display = "flex";
 }
 
 
 function cerrarModal() {
 
-    document.getElementById("modal").style.display = "none";
+    document.getElementById("modal")
+        .style.display = "none";
 
     carrito = [];
+
+    document.getElementById("mesa").value = "";
+
+    document.getElementById("observaciones").value = "";
 
     mostrarCarrito();
 }
