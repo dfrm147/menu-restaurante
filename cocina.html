@@ -49,6 +49,19 @@ header p {
     border-left: 6px solid #ff7a00;
 }
 
+.pedido.pendiente {
+    border-left-color: #ff7a00;
+}
+
+.pedido.preparando {
+    border-left-color: #3498db;
+}
+
+.pedido.entregado {
+    border-left-color: #2e9b55;
+    opacity: 0.65;
+}
+
 .cabecera {
     display: flex;
     justify-content: space-between;
@@ -62,11 +75,23 @@ header p {
 }
 
 .estado {
-    background: #ff7a00;
     padding: 7px 12px;
     border-radius: 20px;
     font-size: 13px;
     font-weight: bold;
+    text-transform: capitalize;
+}
+
+.estado-pendiente {
+    background: #ff7a00;
+}
+
+.estado-preparando {
+    background: #3498db;
+}
+
+.estado-entregado {
+    background: #2e9b55;
 }
 
 .productos {
@@ -262,7 +287,10 @@ async function cargarPedidos() {
             const tarjeta =
             document.createElement("div");
 
-            tarjeta.className = "pedido";
+
+            tarjeta.className =
+                "pedido " +
+                pedido.Estado;
 
 
             let listaProductos = "";
@@ -282,6 +310,10 @@ async function cargarPedidos() {
             });
 
 
+            let claseEstado =
+                "estado-" + pedido.Estado;
+
+
             tarjeta.innerHTML = `
 
                 <div class="cabecera">
@@ -290,7 +322,7 @@ async function cargarPedidos() {
                         🪑 Mesa ${pedido.Mesa}
                     </div>
 
-                    <div class="estado">
+                    <div class="estado ${claseEstado}">
                         ${pedido.Estado}
                     </div>
 
