@@ -519,7 +519,69 @@ function mostrarCarrito() {
 }
 
 
-function pedirAhora() {
+async function pedirAhora() {
+
+    if (carrito.length === 0) {
+        alert("Agrega al menos un producto al pedido.");
+        return;
+    }
+
+    const mesa = document.getElementById("mesa").value;
+    const observaciones = document.getElementById("observaciones").value;
+
+    if (!mesa) {
+        alert("Por favor escribe el número de mesa.");
+        return;
+    }
+
+    const productos = carrito.map(item => ({
+        nombre: item.nombre,
+        cantidad: item.cantidad,
+        precio: item.precio
+    }));
+
+    const total = carrito.reduce(
+        (suma, item) => suma + (item.precio * item.cantidad),
+        0
+    );
+
+    try {
+
+        const respuesta = await fetch(
+            "https://dnvxihkauofhlxrpwvrt.supabase.co/rest/v1/pedidos",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json",
+                    "apikey": "TU_CLAVE_PUBLICA",
+                    "Authorization": "Bearer TU_CLAVE_PUBLICA",
+                    "Prefer": "return=minimal"
+                },
+
+                body: JSON.stringify({
+                    mesa: Number(mesa),
+                    productos: JSON.stringify(productos),
+                    total: total,
+                    estado: "pendiente",
+                    observaciones: observaciones
+                })
+            }
+        );
+
+        if (!respuesta.ok) {
+            throw new Error("No se pudo enviar el pedido");
+        }
+
+        document.getElementById("modal").style.display = "flex";
+
+    } catch (error) {
+
+        console.error(error);
+        alert("No se pudo enviar el pedido. Intenta nuevamente.");
+
+    }
+    }
 
     if (carrito.length === 0) {
 
