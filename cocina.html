@@ -177,7 +177,8 @@ async function cargarPedidos() {
   
         const respuesta = await fetch(  
             SUPABASE_URL +  
-            "/rest/v1/Pedidos",  
+            "SUPABASE_URL +
+"/rest/v1/Pedidos?order=created_at.desc",",  
             {  
   
                 headers: {  
