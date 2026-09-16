@@ -1,455 +1,475 @@
-<!DOCTYPE html>  <html lang="es">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Alta Pinta | Cocina</title>  <style>  
-* {  
-    box-sizing: border-box;  
-}  
-  
-body {  
-    margin: 0;  
-    background: #111;  
-    color: white;  
-    font-family: Arial, sans-serif;  
-}  
-  
-header {  
-    background: #1b1b1b;  
-    padding: 20px;  
-    text-align: center;  
-    border-bottom: 3px solid #ff7a00;  
-}  
-  
-header h1 {  
-    margin: 0;  
-    font-size: 26px;  
-}  
-  
-header p {  
-    margin: 6px 0 0;  
-    color: #aaa;  
-}  
-  
-#pedidos {  
-    padding: 20px;  
-    max-width: 1100px;  
-    margin: auto;  
-}  
-  
-.pedido {  
-    background: #202020;  
-    border-radius: 16px;  
-    padding: 20px;  
-    margin-bottom: 18px;  
-    border-left: 6px solid #ff7a00;  
-}  
-  
-.cabecera {  
-    display: flex;  
-    justify-content: space-between;  
-    align-items: center;  
-    gap: 10px;  
-}  
-  
-.mesa {  
-    font-size: 25px;  
-    font-weight: bold;  
-}  
-  
-.estado {  
-    background: #ff7a00;  
-    padding: 7px 12px;  
-    border-radius: 20px;  
-    font-size: 13px;  
-    font-weight: bold;  
-}  
-  
-.productos {  
-    margin-top: 18px;  
-}  
-  
-.producto {  
-    padding: 9px 0;  
-    border-bottom: 1px solid #333;  
-    font-size: 17px;  
-}  
-  
-.observaciones {  
-    margin-top: 15px;  
-    background: #292929;  
-    padding: 12px;  
-    border-radius: 10px;  
-    color: #ddd;  
-}  
-  
-.total {  
-    text-align: right;  
-    margin-top: 15px;  
-    font-size: 20px;  
-    font-weight: bold;  
-    color: #ff8a00;  
-}  
-  
-.botones {  
-    display: flex;  
-    gap: 10px;  
-    margin-top: 18px;  
-}  
-  
-.botones button {  
-    flex: 1;  
-    padding: 14px;  
-    border: none;  
-    border-radius: 10px;  
-    font-weight: bold;  
-    font-size: 15px;  
-    cursor: pointer;  
-}  
-  
-.preparar {  
-    background: #ff7a00;  
-    color: white;  
-}  
-  
-.entregar {  
-    background: #2e9b55;  
-    color: white;  
-}  
-  
-.vacio {  
-    text-align: center;  
-    color: #888;  
-    padding: 60px 20px;  
-    font-size: 18px;  
-}  
-  
-.error {  
-    text-align: center;  
-    color: #ff5555;  
-    padding: 30px;  
-}  
-  
-@media(max-width:600px) {  
-  
-    #pedidos {  
-        padding: 12px;  
-    }  
-  
-    .pedido {  
-        padding: 16px;  
-    }  
-  
-    .cabecera {  
-        align-items: flex-start;  
-    }  
-  
-    .mesa {  
-        font-size: 22px;  
-    }  
-  
-    .botones {  
-        flex-direction: column;  
-    }  
-}  
-</style>  </head>  <body>  <header>  <h1>🔥 ALTA PINTA — COCINA</h1>  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<p>Panel de pedidos</p>
+<title>Alta Pinta | Cocina</title>
 
-</header>  <div id="pedidos">  <div class="vacio">  
-    Cargando pedidos...  
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #1b1b1b;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #ff7a00;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+header p {
+    margin: 6px 0 0;
+    color: #aaa;
+}
+
+#pedidos {
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.pedido {
+    background: #202020;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+    border-left: 6px solid #ff7a00;
+}
+
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.mesa {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.estado {
+    background: #ff7a00;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.productos {
+    margin-top: 18px;
+}
+
+.producto {
+    padding: 9px 0;
+    border-bottom: 1px solid #333;
+    font-size: 17px;
+}
+
+.observaciones {
+    margin-top: 15px;
+    background: #292929;
+    padding: 12px;
+    border-radius: 10px;
+    color: #ddd;
+}
+
+.total {
+    text-align: right;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff8a00;
+}
+
+.botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.botones button {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.preparar {
+    background: #ff7a00;
+    color: white;
+}
+
+.entregar {
+    background: #2e9b55;
+    color: white;
+}
+
+.vacio {
+    text-align: center;
+    color: #888;
+    padding: 60px 20px;
+    font-size: 18px;
+}
+
+.error {
+    text-align: center;
+    color: #ff5555;
+    padding: 30px;
+}
+
+@media(max-width:600px) {
+
+    #pedidos {
+        padding: 12px;
+    }
+
+    .pedido {
+        padding: 16px;
+    }
+
+    .cabecera {
+        align-items: flex-start;
+    }
+
+    .mesa {
+        font-size: 22px;
+    }
+
+    .botones {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>🔥 ALTA PINTA — COCINA</h1>
+
+    <p>Panel de pedidos</p>
+
+</header>
+
+<div id="pedidos">
+
+    <div class="vacio">
+        Cargando pedidos...
+    </div>
+
 </div>
 
-</div>  <script>  
-  
-const SUPABASE_URL =  
-"https://rdtmtaqnzsapluvjoand.supabase.co";  
-  
-const SUPABASE_KEY =  
-"sb_publishable_wcXPw3HjcPn7dptHwHu9iA_IPWwytVj";  
-  
-  
-async function cargarPedidos() {  
-  
-    const contenedor =  
-        document.getElementById("pedidos");  
-  
-    try {  
-  
-        const respuesta = await fetch(  
-            SUPABASE_URL +  
-    "/rest/v1/Pedidos?order=created_at.desc"
-            {  
-  
-                headers: {  
-  
-                    "apikey": SUPABASE_KEY,  
-  
-                    "Authorization":  
-                    "Bearer " + SUPABASE_KEY  
-  
-                }  
-  
-            }  
-        );  
-  
-  
-        if (!respuesta.ok) {  
-  
-            const error =  
-                await respuesta.text();  
-  
-            throw new Error(error);  
-  
-        }  
-  
-  
-        const pedidos =  
-            await respuesta.json();  
-  
-  
-        contenedor.innerHTML = "";  
-  
-  
-        if (pedidos.length === 0) {  
-  
-            contenedor.innerHTML =  
-            `  
-            <div class="vacio">  
-                No hay pedidos todavía 🍽️  
-            </div>  
-            `;  
-  
-            return;  
-        }  
-  
-  
-        pedidos.forEach(pedido => {  
-  
-            let productos;  
-  
-            try {  
-  
-                productos =  
-                    typeof pedido.Productos === "string"  
-                    ? JSON.parse(pedido.Productos)  
-                    : pedido.Productos;  
-  
-            } catch {  
-  
-                productos = [];  
-  
-            }  
-  
-  
-            const tarjeta =  
-            document.createElement("div");  
-  
-            tarjeta.className = "pedido";  
-  
-  
-            let listaProductos = "";  
-  
-  
-            productos.forEach(producto => {  
-  
-                listaProductos += `  
-                    <div class="producto">  
-                        <strong>  
-                            ${producto.cantidad}x  
-                        </strong>  
-                        ${producto.nombre}  
-                    </div>  
-                `;  
-  
-            });  
-  
-  
-            tarjeta.innerHTML = `  
-  
-                <div class="cabecera">  
-  
-                    <div class="mesa">  
-                        🪑 Mesa ${pedido.Mesa}  
-                    </div>  
-  
-                    <div class="estado">  
-                        ${pedido.Estado}  
-                    </div>  
-  
-                </div>  
-  
-  
-                <div class="productos">  
-  
-                    ${listaProductos}  
-  
-                </div>  
-  
-  
-                ${  
-                    pedido.Observaciones  
-                    ?  
-                    `  
-                    <div class="observaciones">  
-                        📝 <strong>Observaciones:</strong><br>  
-                        ${pedido.Observaciones}  
-                    </div>  
-                    `  
-                    :  
-                    ""  
-                }  
-  
-  
-                <div class="total">  
-  
-                    Total:  
-                    $${Number(pedido.Total)  
-                    .toLocaleString("es-CO")}  
-  
-                </div>  
-  
-  
-                <div class="botones">  
-  
-                    ${  
-                        pedido.Estado === "pendiente"  
-                        ?  
-                        `  
-                        <button  
-                            class="preparar"  
-                            onclick="cambiarEstado(${pedido.id}, 'preparando')">  
-  
-                            👨‍🍳 Preparar  
-  
-                        </button>  
-                        `  
-                        :  
-                        ""  
-                    }  
-  
-  
-                    ${  
-                        pedido.Estado === "preparando"  
-                        ?  
-                        `  
-                        <button  
-                            class="entregar"  
-                            onclick="cambiarEstado(${pedido.id}, 'entregado')">  
-  
-                            ✅ Entregado  
-  
-                        </button>  
-                        `  
-                        :  
-                        ""  
-                    }  
-  
-                </div>  
-  
-            `;  
-  
-  
-            contenedor.appendChild(tarjeta);  
-  
-        });  
-  
-  
-    } catch (error) {  
-  
-        console.error(error);  
-  
-        contenedor.innerHTML = `  
-  
-            <div class="error">  
-  
-                ❌ Error cargando los pedidos.  
-  
-                <br><br>  
-  
-                ${error.message}  
-  
-            </div>  
-  
-        `;  
-  
-    }  
-  
-}  
-  
-  
-async function cambiarEstado(id, nuevoEstado) {  
-  
-    try {  
-  
-        const respuesta = await fetch(  
-  
-            SUPABASE_URL +  
-            "/rest/v1/Pedidos?id=eq." +  
-            id,  
-  
-            {  
-  
-                method: "PATCH",  
-  
-                headers: {  
-  
-                    "Content-Type":  
-                    "application/json",  
-  
-                    "apikey":  
-                    SUPABASE_KEY,  
-  
-                    "Authorization":  
-                    "Bearer " + SUPABASE_KEY,  
-  
-                    "Prefer":  
-                    "return=minimal"  
-  
-                },  
-  
-                body: JSON.stringify({  
-  
-                    Estado: nuevoEstado  
-  
-                })  
-  
-            }  
-  
-        );  
-  
-  
-        if (!respuesta.ok) {  
-  
-            const error =  
-                await respuesta.text();  
-  
-            throw new Error(error);  
-  
-        }  
-  
-  
-        cargarPedidos();  
-  
-  
-    } catch (error) {  
-  
-        alert(  
-            "No se pudo cambiar el estado:\n" +  
-            error.message  
-        );  
-  
-    }  
-  
-}  
-  
-  
-cargarPedidos();  
-  
-  
-setInterval(  
-    cargarPedidos,  
-    5000  
-);  
-  
-</script>  </body>  
+<script>
+
+const SUPABASE_URL =
+"https://rdtmtaqnzsapluvjoand.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_wcXPw3HjcPn7dptHwHu9iA_IPWwytVj";
+
+
+async function cargarPedidos() {
+
+    const contenedor =
+        document.getElementById("pedidos");
+
+    try {
+
+        const respuesta = await fetch(
+            SUPABASE_URL +
+            "/rest/v1/Pedidos?order=created_at.desc",
+            {
+
+                headers: {
+
+                    "apikey": SUPABASE_KEY,
+
+                    "Authorization":
+                    "Bearer " + SUPABASE_KEY
+
+                }
+
+            }
+        );
+
+
+        if (!respuesta.ok) {
+
+            const error =
+                await respuesta.text();
+
+            throw new Error(error);
+
+        }
+
+
+        const pedidos =
+            await respuesta.json();
+
+
+        contenedor.innerHTML = "";
+
+
+        if (pedidos.length === 0) {
+
+            contenedor.innerHTML =
+            `
+            <div class="vacio">
+                No hay pedidos todavía 🍽️
+            </div>
+            `;
+
+            return;
+        }
+
+
+        pedidos.forEach(pedido => {
+
+            let productos;
+
+            try {
+
+                productos =
+                    typeof pedido.Productos === "string"
+                    ? JSON.parse(pedido.Productos)
+                    : pedido.Productos;
+
+            } catch {
+
+                productos = [];
+
+            }
+
+
+            const tarjeta =
+            document.createElement("div");
+
+            tarjeta.className = "pedido";
+
+
+            let listaProductos = "";
+
+
+            productos.forEach(producto => {
+
+                listaProductos += `
+                    <div class="producto">
+                        <strong>
+                            ${producto.cantidad}x
+                        </strong>
+                        ${producto.nombre}
+                    </div>
+                `;
+
+            });
+
+
+            tarjeta.innerHTML = `
+
+                <div class="cabecera">
+
+                    <div class="mesa">
+                        🪑 Mesa ${pedido.Mesa}
+                    </div>
+
+                    <div class="estado">
+                        ${pedido.Estado}
+                    </div>
+
+                </div>
+
+
+                <div class="productos">
+
+                    ${listaProductos}
+
+                </div>
+
+
+                ${
+                    pedido.Observaciones
+                    ?
+                    `
+                    <div class="observaciones">
+                        📝 <strong>Observaciones:</strong><br>
+                        ${pedido.Observaciones}
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+
+                <div class="total">
+
+                    Total:
+                    $${Number(pedido.Total)
+                    .toLocaleString("es-CO")}
+
+                </div>
+
+
+                <div class="botones">
+
+                    ${
+                        pedido.Estado === "pendiente"
+                        ?
+                        `
+                        <button
+                            class="preparar"
+                            onclick="cambiarEstado(${pedido.id}, 'preparando')">
+
+                            👨‍🍳 Preparar
+
+                        </button>
+                        `
+                        :
+                        ""
+                    }
+
+
+                    ${
+                        pedido.Estado === "preparando"
+                        ?
+                        `
+                        <button
+                            class="entregar"
+                            onclick="cambiarEstado(${pedido.id}, 'entregado')">
+
+                            ✅ Entregado
+
+                        </button>
+                        `
+                        :
+                        ""
+                    }
+
+                </div>
+
+            `;
+
+
+            contenedor.appendChild(tarjeta);
+
+        });
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        contenedor.innerHTML = `
+
+            <div class="error">
+
+                ❌ Error cargando los pedidos.
+
+                <br><br>
+
+                ${error.message}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+async function cambiarEstado(id, nuevoEstado) {
+
+    try {
+
+        const respuesta = await fetch(
+
+            SUPABASE_URL +
+            "/rest/v1/Pedidos?id=eq." +
+            id,
+
+            {
+
+                method: "PATCH",
+
+                headers: {
+
+                    "Content-Type":
+                    "application/json",
+
+                    "apikey":
+                    SUPABASE_KEY,
+
+                    "Authorization":
+                    "Bearer " + SUPABASE_KEY,
+
+                    "Prefer":
+                    "return=minimal"
+
+                },
+
+                body: JSON.stringify({
+
+                    Estado: nuevoEstado
+
+                })
+
+            }
+
+        );
+
+
+        if (!respuesta.ok) {
+
+            const error =
+                await respuesta.text();
+
+            throw new Error(error);
+
+        }
+
+
+        cargarPedidos();
+
+
+    } catch (error) {
+
+        alert(
+            "No se pudo cambiar el estado:\n" +
+            error.message
+        );
+
+    }
+
+}
+
+
+cargarPedidos();
+
+
+setInterval(
+    cargarPedidos,
+    5000
+);
+
+</script>
+
+</body>
 </html>
