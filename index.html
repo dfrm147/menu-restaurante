@@ -642,10 +642,7 @@ async function pedirAhora() {
 
         console.error(error);
 
-        alert(
-            "No se pudo enviar el pedido. " +
-            "Revisa la configuración de Supabase."
-        );
+        alert("ERROR SUPABASE:\n" + error.message);
 
     }
 
