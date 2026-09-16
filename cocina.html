@@ -195,7 +195,7 @@ async function cargarPedidos() {
 
         const respuesta = await fetch(
             SUPABASE_URL +
-            "/rest/v1/Pedidos?order=created_at.desc",
+            "/rest/v1/Pedidos",
             {
 
                 headers: {
@@ -472,4 +472,4 @@ setInterval(
 </script>
 
 </body>
-  </html>
+</html>
