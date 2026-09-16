@@ -345,7 +345,6 @@ textarea {
     <button onclick="agregar('Cerveza',8000)">Agregar al pedido</button>
 </div>
 
-
 <div id="carrito">
 
 <h2>🛒 Tu pedido</h2>
@@ -384,7 +383,6 @@ textarea {
 
 </div>
 
-
 <div class="modal" id="modal">
 
 <div class="modal-box">
@@ -405,17 +403,15 @@ Aceptar
 
 </div>
 
-
 <script>
 
 const SUPABASE_URL =
 "https://rdtmtaqnzsapluvjoand.supabase.co";
+
 const SUPABASE_KEY =
 "sb_publishable_wcXPw3HjcPn7dptHwHu9iA_IPWwytVj";
 
-
 let carrito = [];
-
 
 function agregar(nombre, precio) {
 
@@ -439,7 +435,6 @@ function agregar(nombre, precio) {
     mostrarCarrito();
 }
 
-
 function cambiarCantidad(index, cambio) {
 
     carrito[index].cantidad += cambio;
@@ -453,14 +448,12 @@ function cambiarCantidad(index, cambio) {
     mostrarCarrito();
 }
 
-
 function eliminar(index) {
 
     carrito.splice(index, 1);
 
     mostrarCarrito();
 }
-
 
 function mostrarCarrito() {
 
@@ -471,7 +464,6 @@ function mostrarCarrito() {
 
     let total = 0;
 
-
     if (carrito.length === 0) {
 
         lista.innerHTML =
@@ -479,14 +471,12 @@ function mostrarCarrito() {
 
     }
 
-
     carrito.forEach((item, index) => {
 
         const subtotal =
             item.precio * item.cantidad;
 
         total += subtotal;
-
 
         lista.innerHTML += `
 
@@ -528,11 +518,9 @@ function mostrarCarrito() {
 
     });
 
-
     document.getElementById("total").textContent =
         "$" + total.toLocaleString("es-CO");
 }
-
 
 async function pedirAhora() {
 
@@ -543,13 +531,11 @@ async function pedirAhora() {
         return;
     }
 
-
     const mesa =
         document.getElementById("mesa").value;
 
     const observaciones =
         document.getElementById("observaciones").value;
-
 
     if (!mesa) {
 
@@ -557,7 +543,6 @@ async function pedirAhora() {
 
         return;
     }
-
 
     const productos =
         carrito.map(item => ({
@@ -570,14 +555,12 @@ async function pedirAhora() {
 
         }));
 
-
     const total =
         carrito.reduce(
             (suma, item) =>
             suma + item.precio * item.cantidad,
             0
         );
-
 
     try {
 
@@ -605,23 +588,22 @@ async function pedirAhora() {
 
                 body: JSON.stringify({
 
-                    mesa: Number(mesa),
+                    Mesa: Number(mesa),
 
-                    productos:
+                    Productos:
                     JSON.stringify(productos),
 
-                    total: total,
+                    Total: total,
 
                     Estado: "pendiente",
 
-                    observaciones:
+                    Observaciones:
                     observaciones
 
                 })
 
             }
         );
-
 
         if (!respuesta.ok) {
 
@@ -633,10 +615,8 @@ async function pedirAhora() {
             throw new Error(error);
         }
 
-
         document.getElementById("modal")
             .style.display = "flex";
-
 
     } catch (error) {
 
@@ -647,7 +627,6 @@ async function pedirAhora() {
     }
 
 }
-
 
 function cerrarModal() {
 
@@ -662,7 +641,6 @@ function cerrarModal() {
 
     mostrarCarrito();
 }
-
 
 mostrarCarrito();
 
