@@ -281,7 +281,7 @@ textarea {
 </div>
 
 <div class="producto">
-    <img src="Carne parrilla.jpeg" alt="Carne a la parrilla">
+    <img src="Carne%20parrilla.jpeg" alt="Carne a la parrilla">
     <div class="producto-info">
         <h3>Carne a la parrilla</h3>
         <div class="precio">$25.000</div>
@@ -290,7 +290,7 @@ textarea {
 </div>
 
 <div class="producto">
-    <img src="Punta de Anca al Barril en Al Tenedor.jpeg" alt="Punta de anca">
+    <img src="Punta%20de%20Anca%20al%20Barril%20en%20Al%20Tenedor.jpeg" alt="Punta de anca">
     <div class="producto-info">
         <h3>Punta de anca</h3>
         <div class="precio">$32.000</div>
@@ -299,7 +299,7 @@ textarea {
 </div>
 
 <div class="producto">
-    <img src="Receta de pollo a la barbacoa con miel.jpeg" alt="Pollo a la parrilla">
+    <img src="./Receta%20de%20pollo%20a%20la%20barbacoa%20con%20miel.jpeg" alt="Pollo a la parrilla">
     <div class="producto-info">
         <h3>Pollo a la parrilla</h3>
         <div class="precio">$22.000</div>
@@ -308,7 +308,7 @@ textarea {
 </div>
 
 <div class="producto">
-    <img src="Costillas al horno.jpeg" alt="Costillas BBQ">
+    <img src="./Costillas%20al%20horno.jpeg" alt="Costillas BBQ">
     <div class="producto-info">
         <h3>Costillas BBQ</h3>
         <div class="precio">$30.000</div>
@@ -317,7 +317,7 @@ textarea {
 </div>
 
 <div class="producto">
-    <img src="Hamburguesa.jpeg" alt="Hamburguesa Alta Pinta">
+    <img src="./Hamburguesa.jpeg" alt="Hamburguesa Alta Pinta">
     <div class="producto-info">
         <h3>Hamburguesa Alta Pinta</h3>
         <div class="precio">$18.000</div>
@@ -326,7 +326,7 @@ textarea {
 </div>
 
 <div class="producto">
-    <img src="Papas fritas.jpeg" alt="Papas a la francesa">
+    <img src="Papas%20fritas.jpeg" alt="Papas a la francesa">
     <div class="producto-info">
         <h3>Papas a la francesa</h3>
         <div class="precio">$8.000</div>
@@ -407,7 +407,6 @@ textarea {
 </button>
 
 </div>
-
 </div>
 
 <div class="modal" id="modal">
@@ -446,17 +445,13 @@ function agregar(nombre, precio) {
         carrito.find(item => item.nombre === nombre);
 
     if (existente) {
-
         existente.cantidad++;
-
     } else {
-
         carrito.push({
             nombre: nombre,
             precio: precio,
             cantidad: 1
         });
-
     }
 
     mostrarCarrito();
@@ -467,9 +462,7 @@ function cambiarCantidad(index, cambio) {
     carrito[index].cantidad += cambio;
 
     if (carrito[index].cantidad <= 0) {
-
         carrito.splice(index, 1);
-
     }
 
     mostrarCarrito();
@@ -495,7 +488,6 @@ function mostrarCarrito() {
 
         lista.innerHTML =
         '<div class="vacio">Tu pedido está vacío.</div>';
-
     }
 
     carrito.forEach((item, index) => {
@@ -506,7 +498,6 @@ function mostrarCarrito() {
         total += subtotal;
 
         lista.innerHTML += `
-
         <div class="item-carrito">
 
             <strong>${item.nombre}</strong>
@@ -540,9 +531,7 @@ function mostrarCarrito() {
             </button>
 
         </div>
-
         `;
-
     });
 
     document.getElementById("total").textContent =
@@ -575,9 +564,7 @@ async function pedirAhora() {
         carrito.map(item => ({
 
             nombre: item.nombre,
-
             cantidad: item.cantidad,
-
             precio: item.precio
 
         }));
@@ -628,7 +615,6 @@ async function pedirAhora() {
                     observaciones
 
                 })
-
             }
         );
 
@@ -650,9 +636,7 @@ async function pedirAhora() {
         console.error(error);
 
         alert("ERROR SUPABASE:\n" + error.message);
-
     }
-
 }
 
 function cerrarModal() {
