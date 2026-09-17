@@ -62,12 +62,23 @@ h2 {
 .producto {
     background: #1d1d1d;
     border-radius: 15px;
-    padding: 18px;
+    padding: 12px;
     margin: 15px 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 15px;
+}
+
+.producto img {
+    width: 115px;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.producto-info {
+    flex: 1;
 }
 
 .producto h3 {
@@ -225,12 +236,17 @@ textarea {
     }
 
     .producto {
-        flex-direction: column;
-        align-items: stretch;
+        align-items: flex-start;
+    }
+
+    .producto img {
+        width: 95px;
+        height: 85px;
     }
 
     .producto button {
-        width: 100%;
+        padding: 10px;
+        font-size: 13px;
     }
 
     .item-carrito {
@@ -256,93 +272,104 @@ textarea {
 <h2>🥩 Carnes a la parrilla</h2>
 
 <div class="producto">
-    <div>
+    <img src="Churrasco.jpeg" alt="Churrasco">
+    <div class="producto-info">
         <h3>Churrasco</h3>
         <div class="precio">$28.000</div>
     </div>
-    <button onclick="agregar('Churrasco',28000)">Agregar al pedido</button>
+    <button onclick="agregar('Churrasco',28000)">Agregar</button>
 </div>
 
 <div class="producto">
-    <div>
+    <img src="Carne parrilla.jpeg" alt="Carne a la parrilla">
+    <div class="producto-info">
         <h3>Carne a la parrilla</h3>
         <div class="precio">$25.000</div>
     </div>
-    <button onclick="agregar('Carne a la parrilla',25000)">Agregar al pedido</button>
+    <button onclick="agregar('Carne a la parrilla',25000)">Agregar</button>
 </div>
 
 <div class="producto">
-    <div>
+    <img src="Punta de Anca al Barril en Al Tenedor.jpeg" alt="Punta de anca">
+    <div class="producto-info">
         <h3>Punta de anca</h3>
         <div class="precio">$32.000</div>
     </div>
-    <button onclick="agregar('Punta de anca',32000)">Agregar al pedido</button>
+    <button onclick="agregar('Punta de anca',32000)">Agregar</button>
 </div>
 
 <div class="producto">
-    <div>
+    <img src="Receta de pollo a la barbacoa con miel.jpeg" alt="Pollo a la parrilla">
+    <div class="producto-info">
         <h3>Pollo a la parrilla</h3>
         <div class="precio">$22.000</div>
     </div>
-    <button onclick="agregar('Pollo a la parrilla',22000)">Agregar al pedido</button>
+    <button onclick="agregar('Pollo a la parrilla',22000)">Agregar</button>
 </div>
 
 <div class="producto">
-    <div>
+    <img src="Costillas al horno.jpeg" alt="Costillas BBQ">
+    <div class="producto-info">
         <h3>Costillas BBQ</h3>
         <div class="precio">$30.000</div>
     </div>
-    <button onclick="agregar('Costillas BBQ',30000)">Agregar al pedido</button>
+    <button onclick="agregar('Costillas BBQ',30000)">Agregar</button>
 </div>
 
 <div class="producto">
-    <div>
+    <img src="Hamburguesa.jpeg" alt="Hamburguesa Alta Pinta">
+    <div class="producto-info">
         <h3>Hamburguesa Alta Pinta</h3>
         <div class="precio">$18.000</div>
     </div>
-    <button onclick="agregar('Hamburguesa Alta Pinta',18000)">Agregar al pedido</button>
+    <button onclick="agregar('Hamburguesa Alta Pinta',18000)">Agregar</button>
 </div>
 
 <div class="producto">
-    <div>
+    <img src="Papas fritas.jpeg" alt="Papas a la francesa">
+    <div class="producto-info">
         <h3>Papas a la francesa</h3>
         <div class="precio">$8.000</div>
     </div>
-    <button onclick="agregar('Papas a la francesa',8000)">Agregar al pedido</button>
+    <button onclick="agregar('Papas a la francesa',8000)">Agregar</button>
 </div>
 
 <h2>🥤 Bebidas</h2>
 
 <div class="producto">
-    <div>
+    <img src="Gaseosas.jpeg" alt="Gaseosa">
+    <div class="producto-info">
         <h3>Gaseosa</h3>
         <div class="precio">$5.000</div>
     </div>
-    <button onclick="agregar('Gaseosa',5000)">Agregar al pedido</button>
+    <button onclick="agregar('Gaseosa',5000)">Agregar</button>
 </div>
 
 <div class="producto">
-    <div>
+    <img src="Agua.jpeg" alt="Agua">
+    <div class="producto-info">
         <h3>Agua</h3>
         <div class="precio">$3.000</div>
     </div>
-    <button onclick="agregar('Agua',3000)">Agregar al pedido</button>
+    <button onclick="agregar('Agua',3000)">Agregar</button>
 </div>
 
 <div class="producto">
-    <div>
+    <img src="Limonada.jpeg" alt="Limonada">
+    <div class="producto-info">
         <h3>Limonada</h3>
         <div class="precio">$7.000</div>
     </div>
-    <button onclick="agregar('Limonada',7000)">Agregar al pedido</button>
+    <button onclick="agregar('Limonada',7000)">Agregar</button>
 </div>
 
 <div class="producto">
-    <div>
+    <img src="Cerveza.jpg" alt="Cerveza">
+    <div class="producto-info">
         <h3>Cerveza</h3>
         <div class="precio">$8.000</div>
     </div>
-    <button onclick="agregar('Cerveza',8000)">Agregar al pedido</button>
+    <button onclick="agregar('Cerveza',8000)">Agregar</button>
 </div>
 
 <div id="carrito">
